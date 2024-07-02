@@ -19,7 +19,7 @@ const Result = () => {
     const url = `${baseUrl}/rooted_in_love/user/bsc/result/get?option=${id}`;
     const res = await getRequest(url);
 
-    console.log(res?.data);
+    // console.log(res?.data);
     setResult(res?.data);
   }
 

@@ -19,7 +19,7 @@ const Questions = () => {
     const url = `${baseUrl}/rooted_in_love/user/bsc/getall`;
     const res = await getRequest(url);
 
-    console.log(res.data[Step-1]);
+    // console.log(res.data[Step-1]);
 
     setData(res.data);
   }
@@ -36,7 +36,7 @@ const Questions = () => {
 
   const handleSubmit = () => {
     ans.push(curr);
-    console.log(ans);
+    // console.log(ans);
     localStorage.setItem("quiz", JSON.stringify(ans));
   }
 

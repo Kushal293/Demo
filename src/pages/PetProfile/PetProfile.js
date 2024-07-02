@@ -20,7 +20,7 @@ const PetProfile = () => {
   const [image, setImage] = useState("");
 
   let conditions = [];
-  console.log(healthConditions);
+  // console.log(healthConditions);
 
   const handleDate = (e) => {
     let date = e.target.value;

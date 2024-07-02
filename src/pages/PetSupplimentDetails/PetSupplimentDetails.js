@@ -22,7 +22,7 @@ const PetSupplimentDetails = () => {
   const getPetData = async() => {
     const pet = await getPetProfileById(pet_Id);
 
-    console.log(pet?.data?.data);
+    // console.log(pet?.data?.data);
     setDetails(pet?.data?.data);
   }
   
