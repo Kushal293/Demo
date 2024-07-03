@@ -33,15 +33,15 @@ const AboutUs = () => {
                 <div className='mb-[21px]'>
                     <h2 className='px-[28px] md:px-[93px] text-[10px] md:text-[32px] text-primary-600 mb-1 md:mb-4'>Maximum Nutrition</h2>
                     <p className='px-[28px] md:px-[93px] mb-3 md:mb-6 text-[6px] md:text-[18px] text-[#322100]'>We will pack as much good quality, bioavailable form of nutrition into the client’s budget range without compromising on the quality of nutritional value. We do not use preservatives, colors, fillers, binders, chemicals, or any processes that may alter the nutritional value or of the product.</p>
-                    <div className='w-full bg-primary-600'>
-                    <img src={ASSETS.v3} alt='img' className='md:w-[917px] h-[157px] md:h-[512px]' />
+                    <div className='w-full flex items-center justify-center bg-primary-600'>
+                    <img src={ASSETS.v3} alt='img' className='object-cover h-[157px] md:h-[512px]' />
                     </div>
                 </div>
                 <div className='mb-[21px]'>
                     <h2 className='px-[28px] md:px-[93px] text-[10px] md:text-[32px] text-primary-600 mb-1 md:mb-4'>Respect, Consideration, Compassion</h2>
                     <p className='px-[28px] md:px-[93px] mb-3 md:mb-6 text-[6px] md:text-[18px] text-[#322100]'>We emphasize on mutual respect within the working environment, with our clients and with dogs. We will be considerate towards everyone that works with us. We will aim to understand their hardships and struggles. We will show compassion in our hearts for everyone around us.</p>
                     <div className='w-full bg-primary-600'>
-                    <img src={ASSETS.v4} alt='img' className='md:w-[917px] h-[157px] md:h-[512px]' />
+                    <img src={ASSETS.v4} alt='img' className='md:w-full h-[157px] md:h-[512px]' />
                     </div>
                 </div>
                 <div className='mb-[21px]'>
@@ -57,53 +57,54 @@ const AboutUs = () => {
                 <div className='mb-[21px]'>
                     <h2 className='px-[28px] md:px-[93px] text-[10px] md:text-[32px] text-primary-600 mb-1 md:mb-4'>My Approach                    </h2>
                     <p className='px-[28px] md:px-[93px] mb-3 md:mb-6 text-[6px] md:text-[18px] text-[#322100]'>Modifications to lifestyle can have enormous benefits on dogs and their well-being. Simple changes in walking routines, exercise, activities and sleep monitoring can make a world of difference! I firmly believe in science and research and take the latest to help dogs live their best lives – holistically and naturally.</p>
-                    <div className='w-full bg-primary-600'>
+                    <div className='w-full bg-primary-600 flex items-center justify-center'>
                     <img src={ASSETS.l1} alt='img' className='md:w-[917px] h-[157px] md:h-[512px]' />
                     </div>
                 </div>
                 <div className='mb-[21px]'>
                     <p className='px-[28px] md:px-[93px] mb-3 md:mb-6 text-[6px] md:text-[18px] text-[#322100]'>Making small but significant changes to the environment of a dog can change their world! It’s important to remember that our urban world is not the dog’s world. I guide my clients to support their mental and physiological well-being – because I know that it goes a long way to support their health and wellness. I provide a practical and systematic guide to make things simple, impactful and easy to follow.</p>
                     <div className='w-full bg-primary-600'>
-                    <img src={ASSETS.l2} alt='img' className='md:w-[917px] h-[157px] md:h-[512px]' />
+                    <img src={ASSETS.l2} alt='img' className='md:w-full h-[157px] md:h-[512px]' />
                     </div>
                 </div>
                 <div className='mb-[21px]'>
                     <h2 className='px-[28px] md:px-[93px] text-[10px] md:text-[32px] text-primary-600 mb-1 md:mb-4'>Nutrition                    </h2>
                     <p className='px-[28px] md:px-[93px] mb-3 md:mb-6 text-[6px] md:text-[18px] text-[#322100]'>You are what you eat, and this is true for our dogs. What we put into the dog’s body is of such paramount importance, that every single dog family should give it plenty of thought. In my consultations, I guide you and provide you with a starting point and materials to get a better understanding of dog nutrition. The bottom line always is – feed fresh, feed clean and feed species-appropriate diets.</p>
-                    <div className='w-full bg-primary-600'>
-                    <img src={ASSETS.lr3} alt='img' className='md:w-[917px] h-[157px] md:h-[512px]' />
+                    <div className='w-full bg-primary-600 flex justify-between'>
+                    <img src={ASSETS.lr3} alt='img' className='md:w-[452px] h-[157px] md:h-[512px]' />
+                    <img src={ASSETS.ll3} alt='img' className='md:w-[452px] h-[157px] md:h-[512px]' />
                     </div>
                 </div>
             </div>
             <div>
-            <h1 className='text-center text-46px font-semibold text-secondary-600'>Our Ingredients</h1>
-            <p className='text-[#322100] text-[5.49px] md:text-[18px]'>Made with real ingredients and real love</p>
+            <h1 className='px-[28px] md:px-[93px] text-secondary-600 font-medium text-[12px] md:text-[36px] mb-[3px] md:mb-3'>Our Ingredients</h1>
+            <p className='px-[28px] md:px-[93px] text-[#322100] text-[5.49px] md:text-[18px]'>Made with real ingredients and real love</p>
             <div className='mb-[21px]'>
                     <h2 className='px-[28px] md:px-[93px] text-[10px] md:text-[32px] text-primary-600 mb-1 md:mb-4'>Grass-fed, hormone-free meat                    </h2>
                     <p className='px-[28px] md:px-[93px] mb-3 md:mb-6 text-[6px] md:text-[18px] text-[#322100]'>We genuinely care about what goes into your dog’s bowl and take our meat sourcing seriously. As the primary ingredient and source of protein for your dog, our hormone-free chicken, high-quality beef, lamb and pork come from human-grade farms and are grass fed. We use real lean meat, not leftovers!</p>
                     <div className='w-full bg-primary-600'>
-                    <img src={ASSETS.in1} alt='img' className='md:w-[917px] h-[157px] md:h-[512px]' />
+                    <img src={ASSETS.in1} alt='img' className='md:w-full h-[157px] md:h-[512px]' />
                     </div>
                 </div>
                 <div className='mb-[21px]'>
                     <h2 className='px-[28px] md:px-[93px] text-[10px] md:text-[32px] text-primary-600 mb-1 md:mb-4'>Free-range, pasture-raised, certified humane eggs                    </h2>
                     <p className='px-[28px] md:px-[93px] mb-3 md:mb-6 text-[6px] md:text-[18px] text-[#322100]'>We source our eggs from Happy Hens Farms, a pioneer in free-range eggs in India. They take the best care of their hens and meet RSPCA standards. The hens are fed a natural diet of nutritious greens, seeds, bugs, grains, cereals, legumes and herbs. When you crack open these eggs, you can see the beautiful bright orange yolk!</p>
                     <div className='w-full bg-primary-600'>
-                    <img src={ASSETS.in2} alt='img' className='md:w-[917px] h-[157px] md:h-[512px]' />
+                    <img src={ASSETS.in2} alt='img' className='md:w-full h-[157px] md:h-[512px]' />
                     </div>
                 </div>
                 <div className='mb-[21px]'>
                     <h2 className='px-[28px] md:px-[93px] text-[10px] md:text-[32px] text-primary-600 mb-1 md:mb-4'>Organic veggies, fresh herbs and superfoods                    </h2>
                     <p className='px-[28px] md:px-[93px] mb-3 md:mb-6 text-[6px] md:text-[18px] text-[#322100]'>Our food is packed with freshly chopped carrots, spinach, herbs and other veggies. We are mindful about where we source them. We use superfoods like Flax seeds, Moringa and Spirulina to ensure our recipes are full of the essential vitamins and minerals.</p>
                     <div className='w-full bg-primary-600'>
-                    <img src={ASSETS.in3} alt='img' className='md:w-[917px] h-[157px] md:h-[512px]' />
+                    <img src={ASSETS.in3} alt='img' className='md:w-full h-[157px] md:h-[512px]' />
                     </div>
                 </div>
                 <div className='mb-[21px]'>
                     <h2 className='px-[28px] md:px-[93px] text-[10px] md:text-[32px] text-primary-600 mb-1 md:mb-4'>Organic, fair-trade, home-dried spices                    </h2>
                     <p className='px-[28px] md:px-[93px] mb-3 md:mb-6 text-[6px] md:text-[18px] text-[#322100]'>Our spices are home dried and ground using traditional Indian methods by Mom’s Kitchen. All raw spices are carefully chosen and purchased directly from ethical natural farmers in accordance with “Fair Trade”. They are pesticide free, chemical and fertilizer free. It’s our way of supporting the small framers and small businesses while getting top notch spices that lend heavy duty healing properties to our food.</p>
                     <div className='w-full bg-primary-600'>
-                    <img src={ASSETS.in4} alt='img' className='md:w-[917px] h-[157px] md:h-[512px]' />
+                    <img src={ASSETS.in4} alt='img' className='md:w-full h-[157px] md:h-[512px]' />
                     </div>
                 </div>
         </div>
