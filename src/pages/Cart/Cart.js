@@ -7,13 +7,8 @@ import ASSETS from 'assets';
 import Select from 'components/Select/Select';
 import Button from 'components/Button/Button';
 import FooterLight from 'components/FooterLight/FooterLight';
-import { useCart } from 'context/CartContext'; 
-import CartItem from './CartItem/CartItem';
 
 const Cart = () => {
-
-  const { cartItems } = useCart();
-
   return (
     <Container>
       <div className='w-full bg-tritary h-[51px] flex items-center '></div>
@@ -29,11 +24,57 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody>
-          {
-            cartItems.map(item => (
-              <CartItem key={item.id} {...item} />
-            ))
-          }
+            <tr>
+              <td className='w-[40%]'>
+                <div className='flex items-stretch gap-4'>
+                  <div className='w-[90px] h-[90px] rounded-sm overflow-hidden'>
+                    <img
+                      src={ASSETS.suppliment}
+                      className='w-full h-full object-cover'
+                      alt=''
+                    />
+                  </div>
+                  <div className='flex flex-col justify-between '>
+                    <p className='text-lg'>
+                      Gut Feeling (Acidity / gas relief )
+                    </p>
+                    <Select />
+                  </div>
+                </div>
+              </td>
+              <td className='text-lg text-secondary-600'>Rs. 175/-</td>
+              <td className='text-lg text-secondary-600'>2</td>
+              <td className='text-lg text-secondary-600'>Rs. 350/-</td>
+              <td>
+                <div className='w-6 h-6 rounded-md grid place-items-center bg-red-700 cursor-pointer'>
+                  <img src={ASSETS.crossWhite} alt='' />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td className='w-[40%]'>
+                <div className='flex items-stretch gap-4'>
+                  <div className='w-[90px] h-[90px] rounded-sm overflow-hidden'>
+                    <img
+                      src={ASSETS.suppliment}
+                      className='w-full h-full object-cover'
+                      alt=''
+                    />
+                  </div>
+                  <div className='flex flex-col justify-between '>
+                    <p className='text-lg'>Activated charcoal paste</p>
+                  </div>
+                </div>
+              </td>
+              <td className='text-lg text-secondary-600'>Rs. 300/-</td>
+              <td className='text-lg text-secondary-600'>1</td>
+              <td className='text-lg text-secondary-600'>Rs. 300/-</td>
+              <td>
+                <div className='w-6 h-6 rounded-md grid place-items-center bg-red-700 cursor-pointer'>
+                  <img src={ASSETS.crossWhite} alt='' />
+                </div>
+              </td>
+            </tr>
           </tbody>
         </table>
         <div className='flex justify-end mt-[14px] mb-8 gap-6'>

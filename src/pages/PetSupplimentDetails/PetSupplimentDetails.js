@@ -11,23 +11,48 @@ import FooterLight from 'components/FooterLight/FooterLight';
 import CustomBundle from './CustomBundle/CustomBundle';
 import { useEffect } from 'react';
 import { getPetProfileById } from 'http';
-import { assetsBaseUrl } from 'app.config';
+import { assetsBaseUrl, baseUrl } from 'app.config';
+import { getRequest } from 'http';
 
 const PetSupplimentDetails = () => {
 
   const [details, setDetails] = useState({});
+  const [suppliments, setSuppliments] = useState([]);
+  const [addOn, setAddOn] = useState([]);
 
-  const pet_Id = JSON.parse(localStorage.getItem("pet_id"));
+  const pet_Id = localStorage.getItem("pet_id");
+  // const pet_Id = "1";
 
   const getPetData = async() => {
-    const pet = await getPetProfileById(pet_Id);
+    // const pet = await getPetProfileById(pet_Id);
+    const url = `${baseUrl}/rooted_in_love/user/pet/getprofile?pet_id=${pet_Id}`;
+    // console.log(url);
+    const pet = await getRequest(url);
 
-    // console.log(pet?.data?.data);
-    setDetails(pet?.data?.data);
+    // console.log(pet?.data);
+    setDetails(pet?.data);
+  }
+
+  const getPetSuppliment = async () => {
+    const url = `${baseUrl}/rooted_in_love/user/pet/getsupplements?pet_id=${"1"}`
+    const res = await getRequest(url);
+
+    // console.log(res?.data);
+    setSuppliments(res?.data);
+  }
+
+  const getAddOns = async () => {
+    const url = `${baseUrl}/rooted_in_love/user/pet/getaddons?pet_id=${"1"}`
+    const res = await getRequest(url);
+
+    // console.log(res?.data);
+    setAddOn(res?.data);
   }
   
   useEffect(() => {
      getPetData();
+     getPetSuppliment();
+     getAddOns();
   },[])
   return (
     <div className='px-6 md:px-[70px] py-6'>
@@ -92,9 +117,9 @@ const PetSupplimentDetails = () => {
           </legend>
           <div className='flex flex-col gap-4 md:grid md:grid-cols-1 max-w-[800px] md:gap-[28px]'>
             {
-              details.health_conditions.map((condition) => {
+              details?.health_conditions?.map((condition) => {
                 return (
-                  <p key={condition?.health_condition_id} className='text-lg text-primary-600'>{condition?.name} </p>
+                  <p key={condition?.health_condition_id} className='text-[8.23px] md:text-lg text-secondary-600 md:text-primary-600'>{condition?.name} </p>
                 )
               })
             }
@@ -102,51 +127,54 @@ const PetSupplimentDetails = () => {
           <div className='flex justify-end'>
             <Button
               label='EDIT'
-              className='px-6 py-[9px] rounded-sm !font-medium'
+              className='w-[40px] h-[16.50px] md:w-[97px] md:h-[40px] md:px-6 md:py-[9px] text-[7.6px] md:text-lg flex justify-center items-center rounded-sm !font-medium'
             />
           </div>
         </fieldset>
       </fieldset>
-      {/* Selection */}
 
       <p className='text-[24px] text-center md:text-left md:text-26px text-primary font-medium my-7'>
         <span className='text-secondary-600'>Customize</span> your selection
       </p>
-      <fieldset className='border border-primary-600 rounded-md py-6 px-6 mt-4'>
-        <legend className='text-lg bg-white border border-primary-600 rounded-md py-3 text-primary px-4 ml-5'>
+      <fieldset className='border border-primary-600 rounded-md py-6 px-4 md:px-[98px] mt-4'>
+        <legend className='text-[8px] md:text-lg bg-white border border-primary-600 rounded-md py-2 md:py-3 text-primary px-3 md:px-4 ml-5'>
           Choose Supplements
         </legend>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-20'>
-          <Suppliment />
-          <Suppliment />
-          <Suppliment />
-          <Suppliment />
-          <Suppliment />
+        <div className='grid grid-cols-2 md:grid-cols-2 gap-[34px] md:gap-20'>
+          {
+            suppliments?.map(sup => {
+              return (
+                <Suppliment sup={sup} />
+              )
+            })
+          }
         </div>
       </fieldset>
-      <fieldset className='border border-primary-600 rounded-md py-6 px-6 mt-12'>
+      <fieldset className='border border-primary-600 rounded-md p-4 md:p-6 mt-12'>
         <legend className='text-lg bg-white border border-primary-600 rounded-md py-3 text-primary px-4 ml-5'>
           Add Ons
         </legend>
-        <div className='grid grid-cols-1 md:grid-cols-3' style={{ gap: '52px 8px' }}>
-          <AddOns />
-          <AddOns />
-          <AddOns />
-          <AddOns />
-          <AddOns />
+        <div className='grid grid-cols-3' style={{ gap: '52px 8px' }}>
+          {
+            addOn?.map(add => {
+              return (
+                <AddOns add={add} />
+              )
+            })
+          }
         </div>
       </fieldset>
       <div className='flex justify-end mt-7 gap-6'>
         <Link to='/pet-profile'>
           <Button
             label='BACK'
-            className='!py-3 !rounded-sm bg-transparent !text-primary-600 !font-medium border border-primary-600'
+            className='!py-3 text-[7.42px] md:text-[18px] flex justify-center items-center !rounded-sm bg-transparent !text-primary-600 !font-medium border border-primary-600 w-[43.3px] h-[18.56px] md:w-[105px] md:h-[45px]'
           />
         </Link>
         <Link to='/cart'>
           <Button
-            label='ADD TO CART'
-            className='!py-3 !rounded-sm !font-medium'
+            label='NEXT'
+            className='!py-3 !rounded-sm !font-medium text-[7.42px] md:text-[18px] w-[43.3px] !h-[19.56px] flex justify-center items-center md:w-[180px] md:h-[45px]'
           />
         </Link>
       </div>

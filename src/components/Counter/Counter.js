@@ -2,15 +2,8 @@ import classNames from 'classnames';
 import React from 'react';
 // import { useCart } from 'context/CartContext';
 
-const Counter = ({ count, setCount, id, className }) => {
+const Counter = ({ count=1, setCount, id, className }) => {
 
-  // const { getItemQuantity,
-  //   increaseCartQuantity,
-  //   decreaseCartQuantity,
-  //   removeFromCart,
-  // } = useCart();
-
-  // const quantity = getItemQuantity(id);
 
   const handleIncrement = () => {
     setCount(count + 1);
@@ -24,20 +17,20 @@ const Counter = ({ count, setCount, id, className }) => {
     <div className=''>
       <div
         className={classNames(
-          'flex items-center justify-between px-[6px] bg-CTA h-[29px] w-[71px] rounded-md',
+          'flex items-center justify-between px-1 md:px-[6px] bg-CTA md:h-[29px] md:w-[71px] rounded-md',
           className
         )}
       >
         <span
-          className='text-sm text-primary-600'
+          className='text-[4.62px] md:text-sm text-primary-600 flex items-center justify-center'
           role='button'
           onClick={handleDecrement}
         >
           -
         </span>
-        <span className='text-sm text-primary-600'>{count}</span>
+        <span className='text-[4.62px] md:text-sm text-primary-600 flex items-center justify-center'>{count}</span>
         <span
-          className='text-sm text-primary-600'
+          className='text-[4.62px] md:text-sm text-primary-600 flex items-center justify-center'
           role='button'
           onClick={handleIncrement}
         >

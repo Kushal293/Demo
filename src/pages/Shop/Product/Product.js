@@ -12,7 +12,12 @@ import { assetsBaseUrl } from 'app.config';
 const Product = ({ product, category, shop = false }) => {
   const navigate = useNavigate();
   const [count, setCount] = useState(1);
-  const [selectedOption, setSelectedOption] = useState(null);
+  // const [selectedOption, setSelectedOption] = useState(null);
+  const [price, setPrice] = useState("");
+
+  const handleSizeChange = (newPrice) => {
+    setPrice(newPrice);
+  }
 
   // const {
   //   getItemQuantity,
@@ -21,11 +26,11 @@ const Product = ({ product, category, shop = false }) => {
   //   removeFromCart,
   // } = useCart();
 
-  const handleSizeChange = e => {
-    const { value } = e.currentTarget;
-    const size = product.sizes.find(size => size?._id === +value);
-    setSelectedOption(size);
-  };
+  // const handleSizeChange = e => {
+  //   const { value } = e.currentTarget;
+  //   const size = product.sizes.find(size => size?._id === +value);
+  //   setSelectedOption(size);
+  // };
 
 
   const handleProductClick = () => {
@@ -33,11 +38,13 @@ const Product = ({ product, category, shop = false }) => {
   };
 
   useEffect(() => {
+    console.log(product);
     const sizes = product.sizes;
-    if (sizes.length) {
-      setSelectedOption(sizes[0]);
+    if (sizes.length > 0) {
+      setPrice(sizes[0]?.price);
+      console.log(product?.price);
     } else {
-      setSelectedOption({ price: product.price, size: 'standard' });
+      setPrice(product?.price);
     }
     // eslint-disable-next-line
   }, []);
@@ -56,17 +63,13 @@ const Product = ({ product, category, shop = false }) => {
       </div>
       <p className='text-lg my-6'>{product?.name}</p>
       <p className='text-xl text-secondary-600'>
-        Rs. {selectedOption?.price}/-
+        Rs. {price}/-
       </p>
       <div className='select my-[22px]'>
         {product.sizes.length > 1 && (
           <Select
-            onChange={handleSizeChange}
-            value={selectedOption?._id}
-            options={product.sizes.map(size => ({
-              label: size.size,
-              value: size._id,
-            }))}
+          options={product?.sizes} 
+          onSizeChange={handleSizeChange}
           />
         )}
       </div>

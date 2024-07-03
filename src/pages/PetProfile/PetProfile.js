@@ -18,6 +18,7 @@ const PetProfile = () => {
   const [sex, setSex] = useState("");
   const [is_neutered, setNeut] = useState(0);
   const [image, setImage] = useState("");
+  const [mesg, setMesg] = useState("");
 
   let conditions = [];
   // console.log(healthConditions);
@@ -48,13 +49,6 @@ const PetProfile = () => {
     setImage(base64);
   };
 
-  // const handleChange = (e) => {
-  //   if (e.target.checked) {
-  //     setConditions([...conditions, e.target.value]);
-  //   } else {
-  //      setConditions(conditions.filter((item) => item !== e.target.value));
-  //   }
-  // }
 
   const handleClick = (id) => {
     console.log(id);
@@ -79,6 +73,13 @@ const PetProfile = () => {
   }
 
   const saveProfile = async () => {
+
+    if(name.length === 0 || breed.length === 0 || dob.length === 0 || weight.length === 0 || sex.length === 0 || image.length === 0) {
+      setMesg("All Fields Are Required");
+      console.log("All Fields Are Required");
+      return;
+    }
+
     const uri = `/rooted_in_love/user/pet/add`
     const data = {
       name,
@@ -91,13 +92,16 @@ const PetProfile = () => {
       user_id: "1"
     }
     const save = await postRequest(uri,data); 
-    await localStorage.setItem("pet_id", save?.pet_id);
+    console.log(save);
+    localStorage.setItem("pet_id", save?.pet_id);
 
-    if(save?.status_code === "200") console.log(save?.message);
+    if(save?.status_code === "200") {
+      setMesg(save?.message);
+    }
     else console.log(save?.message);
   }
   return (
-    <div className='flex-grow bg-primary-600-65% px-6 md:px-[70px] py-6'>
+    <div className='flex-grow bg-primary-600-65% px-6 md:px-[70px] py-6 relative'>
       <p className='text-[18px] text-center md:text-left md:text-46px text-white font-semibold mb-2 md:my-0'>
         Fill form and{' '}
         <span className='text-secondary-600'>get recommendation</span>
@@ -111,17 +115,17 @@ const PetProfile = () => {
             General Data
           </legend>
           <div className='flex md:gap-5 relative h-full md:h-auto w-full md:w-auto md:items-stretch'>
-            <ImageInput onChange={(e) => handleFileUpload(e)} />
+            <ImageInput onChange={(e) => handleFileUpload(e)} required />
             <div className='flex-grow flex flex-col md:flex-row items-center md:gap-12 md:justify-between'>
               <div className='md:flex-grow flex flex-col gap-[2px] md:gap-2 w-full md:w-auto pl-[15px] md:pl-0'>
-                <Textfield placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} />
-                <Textfield placeholder="Date of Birth" type="text" onFocus={(e) => e.target.type = 'date'} onBlur={(e) => e.target.type = 'text'} value={dob} pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}" onChange={(e) => handleDate(e)}/>
-                <Textfield placeholder="Sex(Male / Female)" value={sex} onChange={(e) => setSex(e.target.value)}/>
+                <Textfield placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} required />
+                <Textfield placeholder="Date of Birth" type="text" onFocus={(e) => e.target.type = 'date'} onBlur={(e) => e.target.type = 'text'} value={dob} pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}" onChange={(e) => handleDate(e)} required/>
+                <Textfield placeholder="Sex(Male / Female)" value={sex} onChange={(e) => setSex(e.target.value)} required/>
               </div>
               <div className='md:flex-grow flex flex-col gap-[2px] md:gap-2 w-full md:w-auto pl-[15px] md:pl-0'>
-                <Textfield placeholder="Breed type" value={breed} onChange={(e) => setBreed(e.target.value)}/>
-                <Textfield placeholder="Weight" value={weight} onChange={(e) => setWeight(e.target.value)}/>
-                <Textfield placeholder="Neutered/un neutered" type='number' min="0" max="1" value={is_neutered} onChange={(e) => setNeut(e.target.value)}/>
+                <Textfield placeholder="Breed type" value={breed} onChange={(e) => setBreed(e.target.value)} required/>
+                <Textfield placeholder="Weight" value={weight} onChange={(e) => setWeight(e.target.value)} required/>
+                <Textfield placeholder="Neutered/un neutered" type='number' min="0" max="1" value={is_neutered} onChange={(e) => setNeut(e.target.value)} required/>
                 {/* <input value={} onChange={(e) => setName(e.target.value)} /> */}
               </div>
             </div>
@@ -139,9 +143,9 @@ const PetProfile = () => {
             Pick Health Condition
           </legend>
           <div className='flex flex-col gap-4 md:grid md:grid-cols-3 max-w-[800px] md:gap-[28px]'>
-            {healthConditions.map(option => (
-              <div key={option._id} onClick={() => handleClick(option?._id)}>
-                <Checkbox label={option.name} />
+            {healthConditions?.map(option => (
+              <div key={option?._id} onClick={() => handleClick(option?._id)}>
+                <Checkbox label={option?.name} />
               </div>
             ))}
           </div>
@@ -168,6 +172,7 @@ const PetProfile = () => {
           </Link>
         </div>
       </fieldset>
+      {/* {mesg.length > 0 && <h2 className='absolute top-[13%] left-[45%] text-2xl font-semibold'>{mesg}</h2>} */}
     </div>
   );
 };

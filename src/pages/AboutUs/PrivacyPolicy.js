@@ -3,10 +3,10 @@ import React from 'react'
 const PrivacyPolicy = () => {
   return (
     <div>
-        <div className='bg-tritary flex items-center justify-center py-[23px]'>
-            <h1 className='font-medium text-26px text-center text-primary-600'>PRIVACY POLICIES</h1>
+        <div className='bg-tritary flex items-center justify-center py-[14px] md:py-[23px]'>
+            <h1 className='font-medium text-[14px] md:text-26px text-center text-primary-600'>PRIVACY POLICIES</h1>
         </div>
-        <div className='py-9 px-[91px] text-[18px] text-[#322100] flex flex-col gap-8'>  
+        <div className='py-5 md:py-9 px-5 md:px-[91px] text-[8px] md:text-[18px] text-[#322100] flex flex-col gap-2 md:gap-8'>  
             <p> Doggiliciouus (“we,” “us,” or “our ”) have created this privacy policy (this “privacy policy”) because we know that you care about how the information you provide to us is used and shared. This privacy policy relates to the information collection and use practices of Doggiliciouus in connection with our online services (the “services”), which are made available to you through our website www.doggiliciouus.com (the “website”). by visiting our website and/or using our services, you consent to the collection and use of information as described in this privacy policy. </p>
 
             <p className='text-secondary-600'>The information we collect directly from you</p>

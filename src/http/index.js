@@ -103,9 +103,7 @@ export const postRequest = async (API_URL, requestData) => {
   const config = {
     headers: {
   
-      // 'Content-Type': 'application/json',
-    
-     
+    Authorization: "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTdkZjVkOTFiOGRhYmE0Y2U1ZTQzNGQyYmNhYWVhY2YyNTIwMTBjN2Q0ODljNzAxNTBmOWRmMDhhY2EwNzE0MmNlNWY5MGJkZjhiNGY1YzAiLCJpYXQiOjE3MTk5NDY0NzcuNzkwMjY3LCJuYmYiOjE3MTk5NDY0NzcuNzkwMjY4LCJleHAiOjE3NTE0ODI0NzcuNzc3NzgzLCJzdWIiOiIxIiwic2NvcGVzIjpbInVzZXIiXX0.EOwW-PNIg7XmzxdtnSPebtQO0BaB1adISTAXuCriz1hZ-xWf5bXfX6Y92KOPeB3N8-AqDL7Hj1ameza-2E_B6O1I5P6BJXJyZuarUD3cm5bHde9wlmW5OZ_IcPVfErxuEQWi5cudtkgXt9Yf8fcQVL7ckmkAhsYEHNrzXMIUCcD8AvOp6RO1fdp5Y7Qg6ePF01nVtO-Y-NiCClcg_KU65KHBAVpFwxOPbfJo10ShNuiKYPwABMwoe26jPk15bz5--7Dn8-aV1e48mnMMBDE8DRaq7FXqLu-cTQR9ZpYmEShutONqeVhyZ8qbXqV-Ixf28thZEKS2ci_G8GT9GVxlAHxKWrjBLVoavV7adSu2kPbFsKOMoMHapPKynvlxFLzlhT_PPB1538H33zDsHoiW06adeXoUlRjsvO1xuN7Bo7XVUmdXxYP0BRUAx_-016u3f5bBTM-VqnfiRkr09EwY5GmyesY7cUvP-kbxJXiDZMbWklbKFB7tqdz05FpAHw_mujnHIy4j_7fexY-0z8Y-FcprsW-SNrCjuY5LMOHbEz_xU4BQbbtlTR7FGbajJB0PWqpvns8hUzhQCkg56P_OvzNkPW-ssXV3lnuYoaEIRnmLuFX0safDAtSouwJVL1oi7L9L2-0fAyIO99kWtX9qZVnPjPgELyLW6T4GopYF9zA",
 
     }
   };
@@ -141,35 +139,37 @@ export const getRequest = async (API_URL) => {
 
    
   let response;
-  // const config = {
-  //   params: header
+  const config = {
+    headers: {
   //     //  Authorization: `Bearer ${token}`
-  //     // 'Content-Type': 'application/json',
+      // 'Content-Type': 'application/json',
       
   //     // 'token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZWdEE2TXI5Q2UiLCJpYXQiOjE2NTYwOTY1MTAsImV4cCI6MjI2MDg5NjUxMH0.JfrmN09MvKzP-840Yn-VuE2IuSlbS4FfJyE5ReMBzW8'
-  //     // 'Authorization': "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZWdEE2TXI5Q2UiLCJpYXQiOjE2NTYwOTY1MTAsImV4cCI6MjI2MDg5NjUxMH0.JfrmN09MvKzP-840Yn-VuE2IuSlbS4FfJyE5ReMBzW8"
+   Authorization: "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTdkZjVkOTFiOGRhYmE0Y2U1ZTQzNGQyYmNhYWVhY2YyNTIwMTBjN2Q0ODljNzAxNTBmOWRmMDhhY2EwNzE0MmNlNWY5MGJkZjhiNGY1YzAiLCJpYXQiOjE3MTk5NDY0NzcuNzkwMjY3LCJuYmYiOjE3MTk5NDY0NzcuNzkwMjY4LCJleHAiOjE3NTE0ODI0NzcuNzc3NzgzLCJzdWIiOiIxIiwic2NvcGVzIjpbInVzZXIiXX0.EOwW-PNIg7XmzxdtnSPebtQO0BaB1adISTAXuCriz1hZ-xWf5bXfX6Y92KOPeB3N8-AqDL7Hj1ameza-2E_B6O1I5P6BJXJyZuarUD3cm5bHde9wlmW5OZ_IcPVfErxuEQWi5cudtkgXt9Yf8fcQVL7ckmkAhsYEHNrzXMIUCcD8AvOp6RO1fdp5Y7Qg6ePF01nVtO-Y-NiCClcg_KU65KHBAVpFwxOPbfJo10ShNuiKYPwABMwoe26jPk15bz5--7Dn8-aV1e48mnMMBDE8DRaq7FXqLu-cTQR9ZpYmEShutONqeVhyZ8qbXqV-Ixf28thZEKS2ci_G8GT9GVxlAHxKWrjBLVoavV7adSu2kPbFsKOMoMHapPKynvlxFLzlhT_PPB1538H33zDsHoiW06adeXoUlRjsvO1xuN7Bo7XVUmdXxYP0BRUAx_-016u3f5bBTM-VqnfiRkr09EwY5GmyesY7cUvP-kbxJXiDZMbWklbKFB7tqdz05FpAHw_mujnHIy4j_7fexY-0z8Y-FcprsW-SNrCjuY5LMOHbEz_xU4BQbbtlTR7FGbajJB0PWqpvns8hUzhQCkg56P_OvzNkPW-ssXV3lnuYoaEIRnmLuFX0safDAtSouwJVL1oi7L9L2-0fAyIO99kWtX9qZVnPjPgELyLW6T4GopYF9zA",
 
-    
-  // };
+    }
+  };
  
   await axios
-    .get(API_URL)
+    .get(API_URL,config)
     .then(res => {
       
      
       if (res.status) {
         response = res.data;
-        // console.log(response);
+        // console.log(res);
         
       }
       else{
         response=res.statusText
       }
+      // console.log(res);
+      // console.log(config);
 
     })
     .catch(error => {
       console.log('Get Api URL while error ===  ', API_URL)
-      console.log('Error caught at service.js file = ', error.response.data.error);
+      console.log('Error caught at service.js file = ', error.message);
     });
   return response
 }
@@ -184,7 +184,7 @@ export const patchRequest = async (API_URL, requestData) => {
       // 'authtoken':token
       // 'token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZWdEE2TXI5Q2UiLCJpYXQiOjE2NTYwOTY1MTAsImV4cCI6MjI2MDg5NjUxMH0.JfrmN09MvKzP-840Yn-VuE2IuSlbS4FfJyE5ReMBzW8'
       // 'Authorization': "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZWdEE2TXI5Q2UiLCJpYXQiOjE2NTYwOTY1MTAsImV4cCI6MjI2MDg5NjUxMH0.JfrmN09MvKzP-840Yn-VuE2IuSlbS4FfJyE5ReMBzW8"
-
+      'Authorization': "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTdkZjVkOTFiOGRhYmE0Y2U1ZTQzNGQyYmNhYWVhY2YyNTIwMTBjN2Q0ODljNzAxNTBmOWRmMDhhY2EwNzE0MmNlNWY5MGJkZjhiNGY1YzAiLCJpYXQiOjE3MTk5NDY0NzcuNzkwMjY3LCJuYmYiOjE3MTk5NDY0NzcuNzkwMjY4LCJleHAiOjE3NTE0ODI0NzcuNzc3NzgzLCJzdWIiOiIxIiwic2NvcGVzIjpbInVzZXIiXX0.EOwW-PNIg7XmzxdtnSPebtQO0BaB1adISTAXuCriz1hZ-xWf5bXfX6Y92KOPeB3N8-AqDL7Hj1ameza-2E_B6O1I5P6BJXJyZuarUD3cm5bHde9wlmW5OZ_IcPVfErxuEQWi5cudtkgXt9Yf8fcQVL7ckmkAhsYEHNrzXMIUCcD8AvOp6RO1fdp5Y7Qg6ePF01nVtO-Y-NiCClcg_KU65KHBAVpFwxOPbfJo10ShNuiKYPwABMwoe26jPk15bz5--7Dn8-aV1e48mnMMBDE8DRaq7FXqLu-cTQR9ZpYmEShutONqeVhyZ8qbXqV-Ixf28thZEKS2ci_G8GT9GVxlAHxKWrjBLVoavV7adSu2kPbFsKOMoMHapPKynvlxFLzlhT_PPB1538H33zDsHoiW06adeXoUlRjsvO1xuN7Bo7XVUmdXxYP0BRUAx_-016u3f5bBTM-VqnfiRkr09EwY5GmyesY7cUvP-kbxJXiDZMbWklbKFB7tqdz05FpAHw_mujnHIy4j_7fexY-0z8Y-FcprsW-SNrCjuY5LMOHbEz_xU4BQbbtlTR7FGbajJB0PWqpvns8hUzhQCkg56P_OvzNkPW-ssXV3lnuYoaEIRnmLuFX0safDAtSouwJVL1oi7L9L2-0fAyIO99kWtX9qZVnPjPgELyLW6T4GopYF9zA",
     }
   };
   let response;

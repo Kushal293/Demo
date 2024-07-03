@@ -3,11 +3,11 @@ import React from 'react'
 const TandC = () => {
   return (
     <div>
-      <div className='bg-tritary flex items-center justify-center py-[23px]'>
-            <h1 className='font-medium text-26px text-center text-primary-600'>TERMS & CONDITIONS</h1>
+      <div className='bg-tritary flex items-center justify-center py-[14px] md:py-[23px]'>
+            <h1 className='font-medium text-[14px] md:text-26px text-center text-primary-600'>TERMS & CONDITIONS</h1>
       </div>
-      <div className='py-9 px-[91px] text-[18px] text-[#322100] flex flex-col gap-8'>
-      <div className='flex flex-col gap-5'>
+      <div className='py-5 md:py-9 px-5 md:px-[91px] text-[8px] md:text-[18px] text-[#322100] flex flex-col gap-8'>
+      <div className='flex flex-col gap-2 md:gap-5'>
       <h3 className='font-medium text-primary-600'>TERMS OF USE :</h3> 
 <p>This Website (“www.doggiliciouus.com”)  is owned and operated by DOGGIELLICIOUS LLP, a Partnership firm incorporated on 04 April 2017. Doggilliciouus’ registered address is I Block, 604 Rohan Jharoka, Kempapura Main Road, Yemalur, Bangalore Karnataka – 560037, India.</p>
 <p>It is the sole owner, operator, author and publisher of the Website.<br/>

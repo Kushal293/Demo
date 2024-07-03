@@ -1,11 +1,17 @@
 import { homeProducts } from 'http';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import styled from 'styled-components';
 
 const SupplimentChart = () => {
 
   const [chart, setChart] = useState([]);
+  const navigate = useNavigate();
+
+  const showProductDetails = async (id) => {
+    navigate(`/product/${id}`)  
+  }
 
   const getChartData = async () => {
     const res = await homeProducts();
@@ -65,7 +71,7 @@ const SupplimentChart = () => {
                 {
                   (item?.products?.puppy.length > 0) ? item?.products?.puppy?.map(product => {
                     return(
-                    <div className='bg-secondary-100 cell' key={product?._id}>
+                    <div className='bg-secondary-100 cell cursor-pointer' key={product?._id} onClick={() => showProductDetails(product?._id)}>
                   <p className='sm:text-10px text-[6px] font-light'>
                     {product?.name}
                   </p>
@@ -81,7 +87,7 @@ const SupplimentChart = () => {
                 {
                   (item?.products?.adult.length > 0) ? item?.products?.adult?.map(product => {
                     return (
-                    <div className='bg-secondary-100 cell' key={product?._id}>
+                    <div className='bg-secondary-100 cell cursor-pointer' key={product?._id} onClick={() => showProductDetails(product?._id)}>
                   <p className='sm:text-10px text-[6px] font-light'>
                     {product?.name}
                   </p>
@@ -98,7 +104,7 @@ const SupplimentChart = () => {
                 {
                   (item?.products?.senior.length > 0) ? item?.products?.senior?.map(product => {
                     return (
-                    <div className='bg-secondary-100 cell' key={product?._id}>
+                    <div className='bg-secondary-100 cell cursor-pointer' key={product?._id} onClick={() => showProductDetails(product?._id)}>
                   <p className='sm:text-10px text-[6px] font-light'>
                     {product?.name}
                   </p>

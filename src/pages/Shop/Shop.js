@@ -59,7 +59,7 @@ const Shop = () => {
             className={classNames(tab === category.name && 'active')}
             onClick={() => handleTab(category.name)}
           >
-            <p className='text-lg text-primary-600'>{category.name}</p>
+            <p className='text-[6px] md:text-lg text-primary-600'>{category.name}</p>
           </Tab>
           </a>
         ))}
@@ -74,7 +74,7 @@ const Shop = () => {
             <Grid className='mt-10 xl:gap-20 gap-16'>
               {products[category.name]?.map(product => (
                 <Product
-                  key={product._id}
+                  key={product?._id}
                   product={product}
                   category={category}
                   shop={true}

@@ -10,6 +10,7 @@ const Textfield = ({ placeholder, ...other }) => {
           placeholder= {placeholder}
           className='text-[8px] md:text-lg border-b border-dashed md:border-solid md:border-b-white bg-transparent pb-1 md:py-[10px] text-white placeholder:text-tritary'
           {...other}
+          
         />
       </div>
     </Container>
