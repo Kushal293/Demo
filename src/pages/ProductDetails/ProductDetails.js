@@ -196,7 +196,7 @@ const ProductDetails = () => {
               
             </div>
             {isDetail && <p className='bg-primary-600 text-tritary p-4'>
-              {isBenifits?.description}
+              {product?.description}
                 </p>}
           </div>
           <div className='bg-secondary-600 cursor-pointer' onClick={() => setIsBenifits(!isBenifits)}>
@@ -205,7 +205,7 @@ const ProductDetails = () => {
               <p className='text-lg text-white'>Benefits </p>
             </div>
             {isBenifits && <p className='bg-primary-600 text-tritary p-4'>
-                {isBenifits?.description}
+                {product?.description}
                 </p>}
           </div>
           <div className='bg-secondary-600 cursor-pointer' onClick={() => setIsIngriedents(!isIngriedents)}>
@@ -214,7 +214,7 @@ const ProductDetails = () => {
               <p className='text-lg text-white'>Ingredients </p>
             </div>
             {isIngriedents && <p className='bg-primary-600 text-tritary p-4'>
-              {isIngriedents?.description}
+              {product?.benefits}
                 </p>}
           </div>
           <div className='bg-secondary-600 cursor-pointer' onClick={() => setIsStrorage(!isStorage)}>
@@ -223,7 +223,7 @@ const ProductDetails = () => {
               <p className='text-lg text-white'>Storage </p>
             </div>
             {isStorage && <p className='bg-primary-600 text-tritary p-4'>
-              {isStorage?.description}
+              {product?.storage}
                 </p>}
           </div>
           <div className='bg-secondary-600 cursor-pointer' onClick={() => setIsFeed(!isFeed)}>
@@ -232,7 +232,7 @@ const ProductDetails = () => {
               <p className='text-lg text-white'>Feeding Instructions</p>
             </div>
             {isFeed && <p className='bg-primary-600 text-tritary p-4'>
-              {isFeed?.description}
+              {product?.feeding_instruction}
                 </p>}
           </div>
         </div>
