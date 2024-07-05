@@ -1,12 +1,27 @@
 import ASSETS from 'assets';
 import { searchProducts } from 'http';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Topbar = () => {
 
   const [search, setSearch] = useState("");
   const [res, setRes] = useState([]);
+  const [open, setOpen] = useState(false);
+
+  
+  const btnRef = useRef();
+
+  useEffect(() => {
+    const closeDropdown = e => {
+        if (!btnRef.current.contains(e.target)) {
+            setOpen(false);
+        }
+    }
+    document.body.addEventListener('click', closeDropdown)
+    return () => document.body.removeEventListener('click', closeDropdown)
+}, [])
+
 
   const handleSearch = async (e) => {
     // const res = await 
@@ -38,7 +53,7 @@ const Topbar = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <img src={ASSETS.search} className='h-3 w-3 sm:h-4 sm:w-4' alt='' />
+          <img src={ASSETS.search} className='h-3 w-3 sm:h-4 sm:w-4 mr-2' alt='' />
         </form>
         <div className='gap-3 hidden lg:flex'>
           <Link to="/"><p className='text-lg text-white'>Home</p></Link>
@@ -48,8 +63,18 @@ const Topbar = () => {
           <Link to="/contact"><p className='text-lg text-white'>Contact Us</p></Link>
           <Link to="/cart"><img src={ASSETS.cart} alt='' /></Link>
         </div>
-        <div className='lg:hidden'>
-          <img src={ASSETS.burgerMenu} alt='' />
+        <div className='flex items-center gap-3 lg:hidden'>
+        <Link to="/cart"><img src={ASSETS.cart} alt='' /></Link>
+          <div className='relative'>
+          <img src={ASSETS.burgerMenu} alt='menu' ref={btnRef} onClick={() => setOpen(!open)} />
+          <div className={` ${open ? "flex flex-col gap-2 bg-primary-600 absolute top-7 -left-[70px] w-[100px] px-2 py-2" : "hidden"}`}>
+            <Link to="/"><p className='text-[10px] md:text-lg text-white'>Home</p></Link>
+            <Link to="/about-us"><p className='text-[10px] md:text-lg text-white'>About</p></Link>
+            <Link to="/shop"><p className='text-[10px] md:text-lg text-white'>Shop</p></Link>
+            <Link to="/profile"><p className='text-[10px] md:text-lg text-white'>My Account</p></Link>
+            <Link to="/contact"><p className='text-[10px] md:text-lg text-white'>Contact Us</p></Link>
+          </div>
+          </div>
         </div>
       </div>
     </header>
