@@ -8,6 +8,11 @@ import ImageInput from './ImageInput/ImageInput';
 import Button from 'components/Button/Button';
 import Checkbox from './Checkbox/Checkbox';
 import { postRequest } from 'http';
+import moment from 'moment';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+  
+  
 
 const PetProfile = () => {
   const { healthConditions } = useSelector(state => state.data);
@@ -15,18 +20,22 @@ const PetProfile = () => {
   const [breed, setBreed] = useState("");
   const [dob, setDob] = useState("");
   const [weight, setWeight] = useState("");
-  const [sex, setSex] = useState("");
+  const [sex, setSex] = useState("Male");
   const [is_neutered, setNeut] = useState(0);
   const [image, setImage] = useState("");
   const [mesg, setMesg] = useState("");
+  const [sexplaceHolder, setSexplaceHolder] = useState("Sex(Male / Female)");
 
   let conditions = [];
   // console.log(healthConditions);
 
+  const notify = (message) => toast(message);
+  
+
   const handleDate = (e) => {
     let date = e.target.value;
-    const arr = date.split("-");
-    date = arr[2] + "-" + arr[1] + "-" + arr[0];
+    // const arr = date.split("-");
+    // date = arr[2] + "-" + arr[1] + "-" + arr[0];
     setDob(date);
   }
 
@@ -67,12 +76,19 @@ const PetProfile = () => {
     }
     const save = await postRequest(uri, data);
 
-    if(save?.status_code === "200") console.log(save?.message);
-    else console.log(save?.message);
+    if(save?.status_code === "200") {
+      notify("Health Conditions are Saved."); 
+      console.log(save?.message);
+    }
+    else {
+      console.log(save?.message);
+      notify(save?.message)
+    }
 
   }
 
   const saveProfile = async () => {
+    
 
     if(name.length === 0 || breed.length === 0 || dob.length === 0 || weight.length === 0 || sex.length === 0 || image.length === 0) {
       setMesg("All Fields Are Required");
@@ -80,28 +96,36 @@ const PetProfile = () => {
       return;
     }
 
+
     const uri = `/rooted_in_love/user/pet/add`
     const data = {
       name,
       breed_type: breed,
-      dob,
+      dob: moment(dob).format('DD-MM-YYYY'),
       weight,
       sex,
       is_neutered,
       image,
       user_id: "1"
     }
+
+    
     const save = await postRequest(uri,data); 
     console.log(save);
     localStorage.setItem("pet_id", save?.pet_id);
 
     if(save?.status_code === "200") {
+      notify("Profile is Saved.");
       setMesg(save?.message);
     }
-    else console.log(save?.message);
+    else {
+      console.log(save?.message);
+      notify(save?.message)
+    }
   }
   return (
     <div className='flex-grow bg-primary-600-65% px-6 md:px-[70px] py-6 relative'>
+      <ToastContainer />
       <p className='text-[18px] text-center md:text-left md:text-46px text-white font-semibold mb-2 md:my-0'>
         Fill form and{' '}
         <span className='text-secondary-600'>get recommendation</span>
@@ -115,17 +139,33 @@ const PetProfile = () => {
             General Data
           </legend>
           <div className='flex md:gap-5 relative h-full md:h-auto w-full md:w-auto md:items-stretch'>
-            <ImageInput onChange={(e) => handleFileUpload(e)} required />
+            
+              {
+                image.length === 0 ? <ImageInput onChange={(e) => handleFileUpload(e)} src= {image} required />
+                  : <img src={image} className='h-[200px] w-[120px] md:h-[184px] md:w-[184px] object-cover object-center rounded-md' alt='preview' />
+              }
             <div className='flex-grow flex flex-col md:flex-row items-center md:gap-12 md:justify-between'>
               <div className='md:flex-grow flex flex-col gap-[2px] md:gap-2 w-full md:w-auto pl-[15px] md:pl-0'>
                 <Textfield placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} required />
                 <Textfield placeholder="Date of Birth" type="text" onFocus={(e) => e.target.type = 'date'} onBlur={(e) => e.target.type = 'text'} value={dob} pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}" onChange={(e) => handleDate(e)} required/>
-                <Textfield placeholder="Sex(Male / Female)" value={sex} onChange={(e) => setSex(e.target.value)} required/>
+                {/* <Textfield placeholder={sexplaceHolder} value={sex} onChange={(e) => setSex(e.target.value)} required/> */}
+                <div className='w-full max-w-[600px] flex-1 '>
+                <select onChange={(e) => setSex(e.target.value)} required className='px-0 w-full outline-none ml-[-4px] text-[8px] md:text-lg border-b border-dashed md:border-solid md:border-b-white bg-transparent pb-1 md:py-[10px] text-white placeholder:text-tritary'>
+                  <option value="Male" className='bg-transparent text-primary-600'>Male</option>
+                  <option value="Female" className='bg-transparent text-primary-600'>Female</option>
+                </select>
+                </div>
               </div>
               <div className='md:flex-grow flex flex-col gap-[2px] md:gap-2 w-full md:w-auto pl-[15px] md:pl-0'>
                 <Textfield placeholder="Breed type" value={breed} onChange={(e) => setBreed(e.target.value)} required/>
                 <Textfield placeholder="Weight" value={weight} onChange={(e) => setWeight(e.target.value)} required/>
-                <Textfield placeholder="Neutered/un neutered" type='number' min="0" max="1" value={is_neutered} onChange={(e) => setNeut(e.target.value)} required/>
+                {/* <Textfield placeholder="Neutered/un neutered" type='number' min="0" max="1" value={is_neutered} onChange={(e) => setNeut(e.target.value)} required/> */}
+                <div className='w-full max-w-[600px] flex-1 '>
+                <select  onChange={(e) => setNeut(e.target.value)} required className=' px-0 w-full outline-none ml-[-4px] text-[8px] md:text-lg border-b border-dashed md:border-solid md:border-b-white bg-transparent pb-1 md:py-[10px] text-white placeholder:text-tritary'>
+                  <option value="0" className='bg-transparent text-primary-600'>Neutered</option>
+                  <option value="1" className='bg-transparent text-primary-600'>Un-Neutered</option>
+                </select>
+                </div>
                 {/* <input value={} onChange={(e) => setName(e.target.value)} /> */}
               </div>
             </div>

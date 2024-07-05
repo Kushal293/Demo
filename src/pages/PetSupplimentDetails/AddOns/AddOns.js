@@ -3,25 +3,33 @@ import ASSETS from 'assets';
 import Counter from 'components/Counter/Counter';
 import Select from 'components/Select/Select';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const AddOns = ({add}) => {
+const AddOns = ({add, ...other}) => {
   
   const [count, setCount] = useState(1);
   const [price, setPrice] = useState(add?.sizes[0]?.price);
+  const [size, setSize] = useState(add?.sizes[0]?.size);
+  const navigate = useNavigate();
 
-  const handleSizeChange = (newPrice) => {
-    setPrice(newPrice);
+  const handleClick = () => {
+    navigate(`/product/${add?._id}`)
+  }
+
+  const handleSizeChange = (info) => {
+    setPrice(info[0]);
+    setSize(info[1])
   }
 
   return (
     <div className='flex md:items-stretch gap-[1.5px] md:gap-4'>
-      <div className='wrapper '>
-        <div className='image h-[38px] w-[37.16px] md:w-[126px] md:h-[132px]'>
+      <div className='wrapper ' onClick={handleClick}>
+        <div className='image h-[38px] w-[37.16px] md:w-[126px] md:h-[132px] cursor-pointer' >
           <img src={`${assetsBaseUrl}/${add?.image}`} alt='' className='h-full object-cover' />
         </div>
       </div>
       <div className='flex-grow flex flex-col md:gap-[20px]'>
-        <p className='text-[5.31px] md:text-lg'>{add?.name}</p>
+        <p className='text-[5.31px] md:text-lg cursor-pointer' onClick={handleClick}>{add?.name}</p>
         <div className='flex items-center mb-[2px]'>
           <p className='text-[5px] md:text-xl text-secondary-600 mr-1'>Rs. {price}/-</p>
           <Select options={add?.sizes} onSizeChange={handleSizeChange} className="w-[36px] md:w-[123px] md:h-[32px] h-[8.55px] flex md:flex-none md:items-center" />

@@ -9,7 +9,7 @@ import ASSETS from 'assets';
 import { assetsBaseUrl } from 'app.config';
 // import { useCart } from 'context/CartContext';
 
-const Product = ({ product, category, shop = false }) => {
+const Product = ({ product, category, shop = false, ...other }) => {
   const navigate = useNavigate();
   const [count, setCount] = useState(1);
   // const [selectedOption, setSelectedOption] = useState(null);
@@ -61,21 +61,22 @@ const Product = ({ product, category, shop = false }) => {
           alt=''
         />
       </div>
-      <p className='text-lg my-6'>{product?.name}</p>
-      <p className='text-xl text-secondary-600'>
+      <p className='text-[7.76px] md:text-lg mt-[11px] mb-[8px] md:my-6'>{product?.name}</p>
+      <p className='text-[8.62px] md:text-xl text-secondary-600'>
         Rs. {price}/-
       </p>
-      <div className='select my-[22px]'>
+      <div className='select mb-[15px] md:my-[22px]'>
         {product.sizes.length > 1 && (
           <Select
           options={product?.sizes} 
           onSizeChange={handleSizeChange}
+          className="w-[55px] h-[14px] [&_.arrow]:!translate-y-2 md:w-[50%] md:h-full md:[&_.arrow]:!translate-y-0"
           />
         )}
       </div>
-      <div className='flex items-center gap-4 mt-auto'>
-        <Counter count={count} setCount={setCount} />
-        <button className='text-sm text-white rounded-md font-semibold bg-secondary-600 px-2 py-[5px]'>
+      <div className='flex items-center gap-1 md:gap-4 mt-2'>
+        <Counter count={count} setCount={setCount} className="w-[31px] h-[13px] rounded-sm" />
+        <button className='text-[6.5px] md:text-sm text-white rounded-sm md:rounded-md font-semibold bg-secondary-600 px-1 py-[2px] md:px-2 md:py-[5px]'>
           ADD TO CART
         </button>
       </div>

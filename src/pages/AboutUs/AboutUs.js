@@ -1,11 +1,33 @@
 import ASSETS from 'assets'
 import FooterLight from 'components/FooterLight/FooterLight'
-import React, { useEffect } from 'react'
+import styled from 'styled-components';
+import classNames from 'classnames';
+import React, { useEffect, useState } from 'react'
+import P1 from './People/P1';
+import P0 from './People/P0';
+import P2 from './People/P2';
+
+
+const steps = {
+    0: P0,
+    1: P1,
+    2: P2,
+};
+
 
 const AboutUs = () => {
-    useEffect(() => {
-        window.scrollTo(0,0);
-    },[])
+
+    const [tab, setTab] = useState(0);
+    const Step = steps[tab]
+
+    const categories = ["Mains", "Office Staffs", "Kitchen Staffs", "CFO", "Maketing"];
+
+    const handleTab = tab => {
+        setTab(tab);
+      };
+
+
+
   return (
     <div>
         <h1 className='ml-[28.39px] md:ml-[93px] mt-[12.53px] md:mt-[35px] mb-[3px] text-primary-600 text-[14.04px] md:text-46px font-semibold'>
@@ -112,6 +134,32 @@ const AboutUs = () => {
         <div className='h-[157px] md:h-[508px] w-full flex items-center justify-center bg-primary-600'>
             <h1 className='text-center text-[14px] md:text-46px font-semibold text-secondary-600'>Meet Our Teem</h1>
         </div>
+        <div>
+        <div className='tabs flex mt-5 md:mt-16 border-b border-[#F2F2F2] mx-6 justify-around'>
+            {
+                categories.map((category, ind) => {
+                    return (
+                        <Tab
+            key={ind}
+            className={classNames(tab === ind && 'active')}
+            onClick={() => handleTab(ind)}
+          >
+            <p className='text-[6px] md:text-lg text-primary-600'>{category}</p>
+          </Tab>
+                    )
+                })
+            }
+        </div>
+        <div className='flex flex-col justify-center items-center py-8'>
+        <div>
+        <p className='text-[14px] md:text-32px'>{categories[tab]}</p>
+        <img src={ASSETS.stroke} alt='' className='' />
+        </div>
+        <div className='px-[46px] md:px-[137px] w-full'>
+            <Step />
+        </div>
+        </div>  
+        </div>
         <div className='px-[70px]'>
             <FooterLight />
         </div>
@@ -120,3 +168,31 @@ const AboutUs = () => {
 }
 
 export default AboutUs
+
+
+
+const Tab = styled.div`
+  padding-block: 3px;
+  opacity: 0.5;
+  position: relative;
+  cursor: pointer;
+  transition: 0.4s ease;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    width: 0%;
+    height: 4px;
+    background-color: #f3a31a;
+    transition: 0.4s ease;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  &.active {
+    opacity: 1;
+    &::before {
+      width: 100%;
+    }
+  }
+`;

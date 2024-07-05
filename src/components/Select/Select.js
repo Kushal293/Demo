@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const Select = ({ options = [], onChange, value, className, onSizeChange }) => {
 
   const handleSelectChange = (event) => {
-    onSizeChange(event.target.value);
+    onSizeChange([event.target.value, event.target.options[event.target.selectedIndex].text]);
   };
 
   return (
@@ -19,7 +19,7 @@ const Select = ({ options = [], onChange, value, className, onSizeChange }) => {
           onChange={handleSelectChange}
         >
           {options.map(option => (
-            <option value={option?.price}>{option?.size}</option>
+            <option value={option?.price} name={option?.size}>{option?.size}</option>
           ))}
         </select>
         <div className='arrow border-t-primary-600 border border-r-[3px] border-t-[3px] border-l-[3px] md:border-t-[5px] md:border-r-[5px] md:border-l-[5px] border-transparent right-1 md:right-[11px]'></div>

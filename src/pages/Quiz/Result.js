@@ -25,124 +25,97 @@ const Result = () => {
 
   useEffect(() => {
     getResult();
-    console.log(id);
+    // console.log(id);
   },[id])
   return (
     <Container className='bg-white'>
-      <div className='flex px-[70px]'>
-          <div className='mt-[90px]'>
-              <p className='text-46px font-semibold text-secondary-600 mt-6'>
+      <div className='flex px-[21px] md:px-[70px]'>
+          <div className='mt-[60px] md:mt-[90px]'>
+              <p className='text-[14px] md:text-46px font-semibold text-secondary-600 mt-6'>
               Result Time ! 
               </p>
-              <p className='text-32px text-primary-600'>
+              <p className='text-[10px] md:text-32px text-primary-600'>
               Check Your Dog’s BCS Result
               </p>
           </div>
-          <img src={ASSETS.q6} alt='dog' className='ml-[50px]' />
+          <img src={ASSETS.q6} alt='dog' className='w-[204px] h-[180px] md:w-fit md:h-fit md:ml-[50px]' />
         </div>
         <div className='flex flex-col items-center justify-center px-[70px] mb-[42px]'>
-          <div className='text-primary-600 w-[208px] h-[63px] border border-primary-600 font-medium text-center text-[36px] mb-[28px]'>
+          <div className='text-primary-600 w-[63.42px] md:w-[208px] h-[19.5px] md:h-[63px] border border-primary-600 font-medium text-center text-[11px] md:text-[36px] mb-[9px] md:mb-[28px]'>
             SCORE 0{result?.score}
           </div>
-          <p className='text-[26px] font-medium text-center w-6/12 mb-[50px]'>
+          <p className='text-[8px] md:text-[26px] font-medium text-center w-8/12 md:w-6/12 mb-4 md:mb-[50px]'>
           {result?.title}
           </p>
           <div className='flex gap-[6px]'>
-            <div className='flex flex-col items-center gap-5'>
-              <div className={`${id === 1 ? "bg-secondary-600 text-tritary" :"bg-tritary text-[#322100]"} flex items-center justify-center h-[56.17px] w-[56.17px] text-[20px] text-center rounded-full`}>
+            <div className='flex flex-col items-center gap-2 md:gap-5'>
+              <div className={`${id === 1 ? "bg-secondary-600 text-tritary" :"bg-tritary text-[#322100]"} flex items-center justify-center h-[17.13px] w-[17.13px] md:h-[56.17px] md:w-[56.17px] text-[6px] md:text-[20px] text-center rounded-full`}>
               1
               </div>
-              <div className={`${id === 1 ? "bg-secondary-600 text-[#322100]" : "bg-primary-600 text-tritary"} w-[177px] h-[141px] flex flex-col items-center justify-between pb-[43px] pt-[21px] cursor-pointer`} onClick={() => setId(1)}>
+              <div className={`${id === 1 ? "bg-secondary-600 text-[#322100]" : "bg-primary-600 text-tritary"} text-[6px] md:text-lg w-[54px] h-[43px] md:w-[177px] md:h-[141px] flex flex-col items-center justify-between pb-[11px] md:pb-[43px] pt-[6px] md:pt-[21px] cursor-pointer`} onClick={() => setId(1)}>
                 <p className='max-w-[95%] text-center'>VERY THIN</p>
                 <p>{`<`}5% Body fat</p>
               </div>
             </div>
-            <div className='flex flex-col items-center gap-5'>
-              <div className={`${id === 2 ? "bg-secondary-600 text-tritary" :"bg-tritary text-[#322100]"} flex items-center justify-center h-[56.17px] w-[56.17px] text-[20px] text-center rounded-full`}>
+            <div className='flex flex-col items-center gap-2 md:gap-5'>
+              <div className={`${id === 2 ? "bg-secondary-600 text-tritary" :"bg-tritary text-[#322100]"} flex items-center justify-center h-[17.13px] w-[17.13px] md:h-[56.17px] md:w-[56.17px] text-[6px] md:text-[20px] text-center rounded-full`}>
               2
               </div>
-              <div className={`${id === 2 ? "bg-secondary-600 text-[#322100]" : "bg-primary-600 text-tritary"} w-[177px] h-[141px] flex flex-col items-center justify-between pb-[43px] pt-[21px] cursor-pointer`} onClick={() => setId(2)}>
+              <div className={`${id === 2 ? "bg-secondary-600 text-[#322100]" : "bg-primary-600 text-tritary"} text-[6px] md:text-lg w-[54px] h-[43px] md:w-[177px] md:h-[141px] flex flex-col items-center justify-between pb-[11px] md:pb-[43px] pt-[6px] md:pt-[21px] cursor-pointer`} onClick={() => setId(2)}>
                 <p className='max-w-[95%] text-center'>UNDER WEIGHT </p>
                 <p>5-15% Body Fat</p>
               </div>
             </div>
-            <div className='flex flex-col items-center gap-5'>
-              <div className={`${id === 3 ? "bg-secondary-600 text-tritary" :"bg-tritary text-[#322100]"} flex items-center justify-center h-[56.17px] w-[56.17px] text-[20px] text-center rounded-full`}>
+            <div className='flex flex-col items-center gap-2 md:gap-5'>
+              <div className={`${id === 3 ? "bg-secondary-600 text-tritary" :"bg-tritary text-[#322100]"} flex items-center justify-center h-[17.13px] w-[17.13px] md:h-[56.17px] md:w-[56.17px] text-[6px] md:text-[20px] text-center rounded-full`}>
               3
               </div>
-              <div className={`${id === 3 ? "bg-secondary-600 text-[#322100]" : "bg-primary-600 text-tritary"} w-[177px] h-[141px] flex flex-col items-center justify-between pb-[43px] pt-[21px] cursor-pointer`} onClick={() => setId(3)}>
+              <div className={`${id === 3 ? "bg-secondary-600 text-[#322100]" : "bg-primary-600 text-tritary"} text-[6px] md:text-lg w-[54px] h-[43px] md:w-[177px] md:h-[141px] flex flex-col items-center justify-between pb-[11px] md:pb-[43px] pt-[6px] md:pt-[21px] cursor-pointer`} onClick={() => setId(3)}>
                 <p className='max-w-[95%] text-center'>IDEAL BODY WEIGHT</p>
                 <p>16-25% Body Fat</p>
               </div>
             </div>
-            <div className='flex flex-col items-center gap-5'>
-              <div className={`${id === 4 ? "bg-secondary-600 text-tritary" :"bg-tritary text-[#322100]"} flex items-center justify-center h-[56.17px] w-[56.17px] text-[20px] text-center rounded-full`}>
+            <div className='flex flex-col items-center gap-2 md:gap-5'>
+              <div className={`${id === 4 ? "bg-secondary-600 text-tritary" :"bg-tritary text-[#322100]"} flex items-center justify-center h-[17.13px] w-[17.13px] md:h-[56.17px] md:w-[56.17px] text-[6px] md:text-[20px] text-center rounded-full`}>
               4
               </div>
-              <div className={`${id === 4 ? "bg-secondary-600 text-[#322100]" : "bg-primary-600 text-tritary"} w-[177px] h-[141px] flex flex-col items-center justify-between pb-[43px] pt-[21px] cursor-pointer`} onClick={() => setId(4)}>
+              <div className={`${id === 4 ? "bg-secondary-600 text-[#322100]" : "bg-primary-600 text-tritary"} text-[6px] md:text-lg w-[54px] h-[43px] md:w-[177px] md:h-[141px] flex flex-col items-center justify-between pb-[11px] md:pb-[43px] pt-[6px] md:pt-[21px] cursor-pointer`} onClick={() => setId(4)}>
                 <p className='max-w-[95%] text-center'>OVER BODY WEIGHT</p>
                 <p>26-35% Body Fat</p>
               </div>
             </div>
-            <div className='flex flex-col items-center gap-5'>
-              <div className={`${id === 5 ? "bg-secondary-600 text-tritary" :"bg-tritary text-[#322100]"} flex items-center justify-center h-[56.17px] w-[56.17px] text-[20px] text-center rounded-full`}>
+            <div className='flex flex-col items-center gap-2 md:gap-5'>
+              <div className={`${id === 5 ? "bg-secondary-600 text-tritary" :"bg-tritary text-[#322100]"} flex items-center justify-center h-[17.13px] w-[17.13px] md:h-[56.17px] md:w-[56.17px] text-[6px] md:text-[20px] text-center rounded-full`}>
               5
               </div>
-              <div className={`${id === 5 ? "bg-secondary-600 text-[#322100]" : "bg-primary-600 text-tritary"} w-[177px] h-[141px] flex flex-col items-center justify-between pb-[43px] pt-[21px] cursor-pointer`} onClick={() => setId(5)}>
+              <div className={`${id === 5 ? "bg-secondary-600 text-[#322100]" : "bg-primary-600 text-tritary"} text-[6px] md:text-lg w-[54px] h-[43px] md:w-[177px] md:h-[141px] flex flex-col items-center justify-between pb-[11px] md:pb-[43px] pt-[6px] md:pt-[21px] cursor-pointer`} onClick={() => setId(5)}>
                 <p className='max-w-[95%] text-center'>OBESE</p>
                 <p>{`>`}35% Body Fat</p>
               </div>
             </div>
           </div>
-          <div className='mt-[42px]'>
+          <div className='-mx-8 md:mx-0 mt-[18px] md:mt-[42px]'>
           <div className='text-[#322100]'>
-            <h1 className='mb-[22px] text-[26px] font-medium'>SCORE 0{result?.score}</h1>
-            <ul className='ml-[50px] w-[80%]'>
-              <li>{result?.description}</li>
-              {/* <li className='text-[18px]'>If your dog’s ribs and every vertebra of the spinal cord and the hip bones are jutting out and there is very little mass covering the skeletal system.</li>
-              <li className='text-[18px]'>could be about 20% - 25% under ideal body condition.</li>
-              <li className='text-[18px]'>Many of us would have seen this in malnourished dogs in rescue cases</li> */}
+            <h1 className='mb-[6px] md:mb-[22px] text-[8px] md:text-[26px] font-medium'>SCORE 0{result?.score}</h1>
+            <ul className='ml-[10px] md:ml-[50px] w-full md:w-[80%]'>
+              <li className='text-[6px] md:text-lg'>{result?.description}</li>
             </ul>
-            <div className='bg-primary-600 text-white px-[15px] py-[25px] text-[18px] mt-6'>
+            <div className='bg-primary-600 text-white px-1 md:px-[15px] py-2 md:py-[25px] text-[6px] md:text-[18px] mt-2 md:mt-6'>
               <h1>Best Course of Action for Score {result?.score < 3 ? "01 & 02" : `0${result?.score}`}</h1>
-              <div className='mt-10 text-tritary text-[14px] flex gap-[37px] mx-[80px] mb-[51px]'>
+              <div className='mt-3 md:mt-10 text-tritary text-[5.2px] md:text-[14px] flex gap-[11px] md:gap-[37px] mx-[14px] md:mx-[80px] mb-3 md:mb-[51px]'>
                   {
                     result?.images?.map(action => {
                       return (
-                        <div className='flex flex-col gap-3 items-center' key={action?._id}>
-                    <img src={`${assetsBaseUrl}/${action?.image}`} alt='not feed' />
-                    <p className='text-center w-[80%]'>
+                        <div className='flex flex-col gap-1 md:gap-3 items-center' key={action?._id}>
+                    <img src={`${assetsBaseUrl}/${action?.image}`} alt='not feed' className='w-[12.2px] h-[12.2px] md:w-fit md:h-fit' />
+                    <p className='text-center text-[5.2px] md:text-[14px] w-[90%] md:w-[80%]'>
                         {action?.description}
                     </p>
                   </div>
                       )
                     })
                   }
-                  {/* <div className='flex flex-col gap-3 items-center'>
-                    <img src={ASSETS.med} alt='medical' />
-                    <p className='text-center w-[80%]'>
-                    Check the medical condition
-                    </p>
-                  </div>
-                  <div className='flex flex-col gap-3 items-center'>
-                    <img src={ASSETS.help} alt='help' />
-                    <p className='text-center w-[80%]'>
-                    Contact a holistic practitioner, and a holistic nutritionist
-                    </p>
-                  </div>
-                  <div className='flex flex-col gap-3 items-center'>
-                    <img src={ASSETS.bowel} alt='bowel' />
-                    <p className='text-center w-[80%]'>
-                    Bowel Inflammation or other medical conditions 
-                    </p>
-                  </div>
-                  <div className='flex flex-col gap-3 items-center'>
-                    <img src={ASSETS.env} alt='environment' />
-                    <p className='text-center w-[80%]'>
-                    stressful environment
-                    </p>
-                  </div> */}
-              </div>
+             </div>
             </div>
           </div>
           </div>
@@ -186,12 +159,18 @@ const Container = styled.div`
     height: calc(100dvh - 80px);
     padding-inline: 70px;
     padding-block: 92px;
+    @media (max-width: 760px) {
+      padding-inline: 21px;
+    padding-block: 28px;
+    }
   }
 
   & .wrapper {
     padding-inline: 108px;
+    @media (max-width: 760px) {
+      padding-inline: 21px; 
+    }
   }
-
   & .section-title {
     margin-top: 60px;
   }

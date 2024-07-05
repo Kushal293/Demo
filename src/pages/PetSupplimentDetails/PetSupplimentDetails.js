@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Button from 'components/Button/Button';
 import Suppliment from './Suppliment/Suppliment';
 import AddOns from './AddOns/AddOns';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import ASSETS from 'assets';
 import styled from 'styled-components';
@@ -19,6 +19,7 @@ const PetSupplimentDetails = () => {
   const [details, setDetails] = useState({});
   const [suppliments, setSuppliments] = useState([]);
   const [addOn, setAddOn] = useState([]);
+  const navigate = useNavigate();
 
   const pet_Id = localStorage.getItem("pet_id");
   // const pet_Id = "1";
@@ -144,7 +145,7 @@ const PetSupplimentDetails = () => {
           {
             suppliments?.map(sup => {
               return (
-                <Suppliment sup={sup} />
+                  <Suppliment key={sup?._id} sup={sup}/>
               )
             })
           }
@@ -158,7 +159,7 @@ const PetSupplimentDetails = () => {
           {
             addOn?.map(add => {
               return (
-                <AddOns add={add} />
+                <AddOns key={add?._id} add={add} />
               )
             })
           }
