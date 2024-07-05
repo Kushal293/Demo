@@ -6,12 +6,16 @@ import React, { useEffect, useState } from 'react'
 import P1 from './People/P1';
 import P0 from './People/P0';
 import P2 from './People/P2';
+import P3 from './People/P3';
+import P4 from './People/P4';
 
 
 const steps = {
     0: P0,
     1: P1,
     2: P2,
+    3: P3,
+    4: P4,
 };
 
 
