@@ -36,6 +36,7 @@ const PetProfile = () => {
     let date = e.target.value;
     // const arr = date.split("-");
     // date = arr[2] + "-" + arr[1] + "-" + arr[0];
+    console.log(date);
     setDob(date);
   }
 
@@ -108,6 +109,7 @@ const PetProfile = () => {
       image,
       user_id: "1"
     }
+    setDob(moment(dob).format('DD-MM-YYYY'));
 
     
     const save = await postRequest(uri,data); 
@@ -147,7 +149,10 @@ const PetProfile = () => {
             <div className='flex-grow flex flex-col md:flex-row items-center md:gap-12 md:justify-between'>
               <div className='md:flex-grow flex flex-col gap-[2px] md:gap-2 w-full md:w-auto pl-[15px] md:pl-0'>
                 <Textfield placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} required />
-                <Textfield placeholder="Date of Birth" type="text" onFocus={(e) => e.target.type = 'date'} onBlur={(e) => e.target.type = 'text'} value={dob} pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}" onChange={(e) => handleDate(e)} required/>
+                <Textfield placeholder="Date of Birth" type="text" onFocus={(e) => e.target.type = 'date'} onBlur={(e) => {
+                  e.target.type = 'text';
+                  e.target.value = moment(e.target.value).format('DD-MM-YYYY')
+                }} value={dob} onChange={(e) => handleDate(e)} required/>
                 {/* <Textfield placeholder={sexplaceHolder} value={sex} onChange={(e) => setSex(e.target.value)} required/> */}
                 <div className='w-full max-w-[600px] flex-1 '>
                 <select onChange={(e) => setSex(e.target.value)} required className='px-0 w-full outline-none ml-[-4px] text-[8px] md:text-lg border-b border-dashed md:border-solid md:border-b-white bg-transparent pb-1 md:py-[10px] text-white placeholder:text-tritary'>
