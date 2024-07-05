@@ -136,7 +136,7 @@ const AboutUs = () => {
         </div>
         </div>
         <div className='h-[157px] md:h-[508px] w-full flex items-center justify-center bg-primary-600'>
-            <h1 className='text-center text-[14px] md:text-46px font-semibold text-secondary-600'>Meet Our Teem</h1>
+            <h1 className='text-center text-[14px] md:text-46px font-semibold text-secondary-600'>Meet Our Team</h1>
         </div>
         <div>
         <div className='tabs flex mt-5 md:mt-16 border-b border-[#F2F2F2] mx-6 justify-around'>
