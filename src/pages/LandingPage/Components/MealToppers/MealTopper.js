@@ -41,7 +41,7 @@ const MealTopper = () => {
             </div>
             <div className='absolute right-0 bottom-0'>
               <Link to="/choice">
-              <Button label='EXPLORE NOW' />
+              <Button label='EXPLORE NOW' className="text-[7px] md:text-lg px-2 py-2" />
               </Link>
             </div>
           </div>
@@ -67,7 +67,7 @@ const MealTopper = () => {
             </div>
             <div className='absolute right-0 bottom-0'>
               <Link to="/shop">
-              <Button label='SHOP NOW' />
+              <Button label='SHOP NOW' className="text-[7px] md:text-lg px-2 py-2" />
               </Link>
             </div>
           </div>

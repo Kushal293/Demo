@@ -52,7 +52,7 @@ const Questions = () => {
                   Body Condition Score (BCS)    
               </span>
               </p>
-              <p className='text-[11px] md:text-32px text-primary-600'>{data[Step-1]?.title}</p>
+              <p className='text-[11px] md:text-32px text-primary-600 w-[217px] md:w-[630px]'>{data[Step-1]?.title}</p>
             </div>
             <div className='mt-[210px]'>
               <h1 className='text-[9px] md:text-lg'>Step {Step} / 5</h1>
@@ -66,7 +66,7 @@ const Questions = () => {
               <p className='text-primary-600 text-[10px] md:text-[18px]'>{data[Step-1]?.question}</p>
             </div>
           </div>
-          <img src={`${assetsBaseUrl}/${data[Step-1]?.image}`} alt='dog' className='md:mr-[120px] ml-[-110px] z-10 md:ml-0 mt-10 md:mt-6 w-[210px] h-[158px] md:h-fit md:w-fit' />
+          <img src={`${assetsBaseUrl}/${data[Step-1]?.image}`} alt='dog' className='object-contain md:mr-[120px] ml-[-110px] z-10 md:ml-0 mt-10 md:mt-6 w-[210px] h-[158px] md:h-fit md:w-fit' />
         </div>
         
         <div className='flex flex-wrap mt-11 gap-1 md:gap-0 md:justify-evenly'>
@@ -75,7 +75,7 @@ const Questions = () => {
               return (
                 <div 
                 key={item?._id} 
-                className='flex flex-col items-center w-[112px] md:w-[222px] cursor-pointer hover:shadow-[0px_4px_5px_0px_#00000080] hover:px-1 transition-all ease-in duration-150'
+                className='flex flex-col items-center mb-2 w-[105px] md:w-[222px] cursor-pointer hover:shadow-[0px_4px_5px_0px_#00000080] hover:px-1 transition-all ease-in duration-150'
                 onClick={() => setCurr(item?._id)}
                 >
                   <div className='relative'>

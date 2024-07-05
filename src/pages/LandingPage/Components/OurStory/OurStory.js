@@ -40,7 +40,7 @@ const OurStory = () => {
               say! You get what your see! Products that work!
             </p>
             <Link to="/about-us">
-              <Button label='ABOUT US' className='lg:mt-12 mt-3 mb-4' />
+              <Button label='ABOUT US' className='lg:mt-12 mt-3 mb-4 text-[7px] md:text-lg px-2 py-2' />
             </Link>
           </div>
           <div className='lg:w-[402px] md:w-[300px] sm:w-[200px] w-[132px] pt-3'>

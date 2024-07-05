@@ -22,7 +22,7 @@ const IdealWeight = () => {
             <Link to="/quiz" >
               <Button
                 label='CALCULATE NOW'
-                className='lg:mt-20 md:mt-16 mt-[22px]'
+                className='lg:mt-20 md:mt-16 mt-[22px] text-[7px] md:text-lg px-2 py-2'
               />
             </Link>
           </div>

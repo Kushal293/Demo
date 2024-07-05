@@ -34,7 +34,7 @@ const Consult = () => {
           feeding fresh food to your dog.
         </p>
         <Link to="/consult">
-          <Button label='CONSULT NOW' className='md:mt-10 sm:mt-6 mt-2' />
+          <Button label='CONSULT NOW' className='md:mt-10 sm:mt-6 mt-2 text-[7px] md:text-lg px-2 py-2' />
         </Link>
       </div>
     </div>

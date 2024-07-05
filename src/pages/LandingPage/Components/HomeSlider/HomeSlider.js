@@ -64,6 +64,7 @@ const HomeSlider = () => {
                       <Button
                         label={slide.button_title}
                         onClick={() => handleClick(slide.button_title)}
+                        className="text-[7px] md:text-lg px-2 py-1"
                       />
                     </div>
                   </div>

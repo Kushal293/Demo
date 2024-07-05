@@ -42,8 +42,8 @@ const Topbar = () => {
       <div className='logo'>
         <img src={ASSETS.logo} className='h-[23px] sm:h-10' alt='' />
       </div>
-      <div className='flex md:flex-1 mr-5 md:mr-0 items-center gap-3 sm:gap-9 justify-end'>
-        <form className='search flex-1 max-w-[163px] sm:max-w-[349px] bg-tritary h-6 sm:h-[38px] rounded sm:rounded-[10px] px-[10px] flex items-center gap-1 md:gap-3' onSubmit={(e) => handleSearch(e)}>
+      <div className='flex md:flex-1 mr-3 md:mr-0 items-center gap-4 sm:gap-9 justify-end'>
+        <form className='search flex-1 max-w-[163px] sm:max-w-[349px] bg-tritary h-6 sm:h-[38px] rounded sm:rounded-[10px] px-[10px] flex items-center gap-[2px] md:gap-3' onSubmit={(e) => handleSearch(e)}>
           <input
             type='text'
             className='h-full flex-1 outline-none border-none bg-transparent text-primary-600 sm:text-sm text-[10px]'
@@ -64,9 +64,9 @@ const Topbar = () => {
           <Link to="/cart"><img src={ASSETS.cart} alt='' /></Link>
         </div>
         <div className='flex items-center gap-3 lg:hidden'>
-          <Link to="/cart"><img src={ASSETS.cart} alt='cart' className='w-[14px] h-[14px] md:w-fit md:h-fit' /></Link>
+          <Link to="/cart"><img src={ASSETS.cart} alt='cart' className='w-[16px] h-[16px] md:w-fit md:h-fit' /></Link>
           <div className='relative'>
-            <img src={ASSETS.burgerMenu} alt='menu' ref={btnRef} onClick={() => setOpen(!open)} />
+            <img src={ASSETS.burgerMenu} alt='menu' ref={btnRef} onClick={() => setOpen(!open)}  className='w-[16px] h-[16px] md:w-fit md:h-fit' />
             <div className={` ${open ? "flex flex-col gap-2 bg-primary-600 absolute top-7 -left-[70px] w-[100px] px-2 py-2" : "hidden"}`}>
               <Link to="/"><p className='text-[10px] md:text-lg text-white'>Home</p></Link>
               <Link to="/about-us"><p className='text-[10px] md:text-lg text-white'>About</p></Link>

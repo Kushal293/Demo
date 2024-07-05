@@ -122,25 +122,25 @@ const Result = () => {
         </div>
         <div className='bg-secondary-100 lg:px-12 md:px-[69px] px-6 flex lg:gap-14 md:gap-6 sm:gap-4 gap-[6px] '>
       <div
-        className='lg:min-w-[378px] md:min-w-[300px] sm:min-w-[230px] min-w-[128px] bg-no-repeat bg-cover bg-center'
+        className='lg:min-w-[378px] md:min-w-[300px] sm:min-w-[230px] min-w-[128px] bg-no-repeat bg-contain md:bg-cover bg-center'
         style={{ backgroundImage: `url(${ASSETS.mansii})` }}
       ></div>
-      <div className='flex-1 md:pb-12 sm:pb-6 md:pt-11 sm:pt-6 pt-2 pb-2'>
-        <p className='lg:text-2xl md:text-xl sm:text-sm text-[10px] text-primary-600'>
+      <div className='flex-1 md:pb-12 sm:pb-6 md:pt-11 sm:pt-6 py-3'>
+        <p className='lg:text-2xl md:text-xl sm:text-sm text-[7px] text-primary-600'>
           The way your dog's{' '}
           <span className='text-secondary-600'>
             food, supplements and treats
           </span>{' '}
           should be!
         </p>
-        <p className='lg:text-4xl md:text-2xl sm:text-lg text-sm text-secondary-600 mt-3'>
+        <p className='lg:text-4xl md:text-2xl sm:text-lg text-[11px] text-secondary-600 mt-1 md:mt-3'>
           Canine nutritionist designed ....
         </p>
-        <p className='text-[8px] md:text-sm sm:text-[12px] text-black-100 mt-6'>
+        <p className='text-[5px] md:text-sm sm:text-[12px] text-black-100 mt-2 md:mt-6'>
         Get Expert’s suggestion for customized plans. Connect with our canine nutritionist & founder  Manssi
         </p>
         <Link to="/consult">
-          <Button label='CONSULT NOW' className='md:mt-10 sm:mt-6 mt-2' />
+          <Button label='CONSULT NOW' className='md:mt-10 sm:mt-6 mt-2 text-[7px] md:text-lg px-2 py-2' />
         </Link>
       </div>
     </div>
