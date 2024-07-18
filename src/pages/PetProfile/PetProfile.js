@@ -11,6 +11,7 @@ import { postRequest } from 'http';
 import moment from 'moment';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import DatePicker from 'react-datepicker';
   
   
 
@@ -19,7 +20,7 @@ const PetProfile = () => {
   const [name, setName] = useState("");
   const [breed, setBreed] = useState("");
   const [dob, setDob] = useState("");
-  const [weight, setWeight] = useState("");
+  const [weight, setWeight] = useState();
   const [sex, setSex] = useState("Male");
   const [is_neutered, setNeut] = useState(0);
   const [image, setImage] = useState("");
@@ -36,7 +37,7 @@ const PetProfile = () => {
     let date = e.target.value;
     // const arr = date.split("-");
     // date = arr[2] + "-" + arr[1] + "-" + arr[0];
-    console.log(date);
+    // console.log(dob);
     setDob(date);
   }
 
@@ -93,7 +94,8 @@ const PetProfile = () => {
 
     if(name.length === 0 || breed.length === 0 || dob.length === 0 || weight.length === 0 || sex.length === 0 || image.length === 0) {
       setMesg("All Fields Are Required");
-      console.log("All Fields Are Required");
+      // console.log("All Fields Are Required");
+      notify("All Fields Are Required");
       return;
     }
 
@@ -103,7 +105,7 @@ const PetProfile = () => {
       name,
       breed_type: breed,
       dob: moment(dob).format('DD-MM-YYYY'),
-      weight,
+      weight: `${weight} kg`,
       sex,
       is_neutered,
       image,
@@ -148,12 +150,12 @@ const PetProfile = () => {
               }
             <div className='flex-grow flex flex-col md:flex-row items-center md:gap-12 md:justify-between'>
               <div className='md:flex-grow flex flex-col gap-[2px] md:gap-2 w-full md:w-auto pl-[15px] md:pl-0'>
-                <Textfield placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} required />
+                <Textfield placeholder="Enter name" maxLength="20" value={name} onChange={(e) => setName(e.target.value)} required />
                 <Textfield placeholder="Date of Birth" type="text" onFocus={(e) => e.target.type = 'date'} onBlur={(e) => {
-                  e.target.type = 'text';
-                  e.target.value = moment(e.target.value).format('DD-MM-YYYY')
-                }} value={dob} onChange={(e) => handleDate(e)} required/>
-                {/* <Textfield placeholder={sexplaceHolder} value={sex} onChange={(e) => setSex(e.target.value)} required/> */}
+                  e.target.type = 'text'; 
+                  //  e.target.value = moment(e.target.value).format('DD-MM-YYYY')
+                }} value={dob} onChange={(e) => handleDate(e)} required/> 
+                {/* <DatePicker selected={dob} onChange={(date) => setDob(date)} /> */}
                 <div className='w-full max-w-[600px] flex-1 '>
                 <select onChange={(e) => setSex(e.target.value)} required className='px-0 w-full outline-none ml-[-4px] text-[8px] md:text-lg border-b border-dashed md:border-solid md:border-b-white bg-transparent pb-1 md:py-[10px] text-white placeholder:text-tritary'>
                   <option value="Male" className='bg-transparent text-primary-600'>Male</option>
@@ -162,8 +164,8 @@ const PetProfile = () => {
                 </div>
               </div>
               <div className='md:flex-grow flex flex-col gap-[2px] md:gap-2 w-full md:w-auto pl-[15px] md:pl-0'>
-                <Textfield placeholder="Breed type" value={breed} onChange={(e) => setBreed(e.target.value)} required/>
-                <Textfield placeholder="Weight" value={weight} onChange={(e) => setWeight(e.target.value)} required/>
+                <Textfield placeholder="Breed type" maxLength="20" value={breed} onChange={(e) => setBreed(e.target.value)} required/>
+                <Textfield placeholder="Weight" type="number" min="1" value={weight} onChange={(e) => setWeight(e.target.value)} required/>
                 {/* <Textfield placeholder="Neutered/un neutered" type='number' min="0" max="1" value={is_neutered} onChange={(e) => setNeut(e.target.value)} required/> */}
                 <div className='w-full max-w-[600px] flex-1 '>
                 <select  onChange={(e) => setNeut(e.target.value)} required className=' px-0 w-full outline-none ml-[-4px] text-[8px] md:text-lg border-b border-dashed md:border-solid md:border-b-white bg-transparent pb-1 md:py-[10px] text-white placeholder:text-tritary'>
