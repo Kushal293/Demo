@@ -60,7 +60,7 @@ const SupplimentChart = () => {
               return (
                 <tr key={item?.health_condition_id}>
             <td>
-              <div className='w-full py-2 md:py-4 items-center flex justify-center bg-secondary-100 '>
+              <div className='w-full h-full md:py-4 items-center flex justify-center bg-secondary-100 '>
                 <p className='sm:text-sm text-[8px] text-center font-light max-w-[15ch] '>
                   {item?.health_condition}
                 </p>

@@ -58,35 +58,35 @@ const Footer = () => {
 
           <div className='flex md:mt-5 mt-3 justify-between gap-3'>
             <div className='flex flex-col'>
-              <div className='flex gap-2 items-center'>
+              <div className='flex gap-2 items-center cursor-pointer' onClick={() => navigate('/shop')}>
                 <span className='h-1 w-1 rounded-full bg-gray-400'></span>
                 <p className='md:text-sm sm:text-[10px] text-[6px] text-gray-400'>
                   {' '}
                   Supplements
                 </p>
               </div>
-              <div className='flex gap-2 items-center'>
+              <div className='flex gap-2 items-center cursor-pointer' onClick={() => navigate('/shop')}>
                 <span className='h-1 w-1 rounded-full bg-gray-400'></span>
                 <p className='md:text-sm sm:text-[10px] text-[6px] text-gray-400'>
                   {' '}
                   Treats
                 </p>
               </div>
-              <div className='flex gap-2 items-center'>
+              <div className='flex gap-2 items-center cursor-pointer' onClick={() => navigate('/quiz')}>
                 <span className='h-1 w-1 rounded-full bg-gray-400'></span>
                 <p className='md:text-sm sm:text-[10px] text-[6px] text-gray-400'>
                   {' '}
                   BCS
                 </p>
               </div>
-              <div className='flex gap-2 items-center'>
+              <div className='flex gap-2 items-center cursor-pointer' onClick={() => navigate('/pet-profile')}>
                 <span className='h-1 w-1 rounded-full bg-gray-400'></span>
                 <p className='md:text-sm sm:text-[10px] text-[6px] text-gray-400'>
                   {' '}
                   Dog Profile{' '}
                 </p>
               </div>
-              <div className='flex gap-2 items-center'>
+              <div className='flex gap-2 items-center cursor-pointer' onClick={() => navigate('/profile')}>
                 <span className='h-1 w-1 rounded-full bg-gray-400'></span>
                 <p className='md:text-sm  sm:text-[10px] text-[6px] text-gray-400'>
                   {' '}
@@ -96,14 +96,14 @@ const Footer = () => {
             </div>
             <div className='flex flex-grow md:justify-evenly md:flex-row flex-col gap-2'>
               <div className='flex flex-col'>
-                <div className='flex gap-2 items-center'>
+                <div className='flex gap-2 items-center cursor-pointer' onClick={() => navigate('/consult')}>
                   <span className='h-1 w-1 rounded-full bg-gray-400'></span>
                   <p className='md:text-sm sm:text-[10px] text-[6px] text-gray-400'>
                     {' '}
                     Customization & Consultation
                   </p>
                 </div>
-                <div className='flex gap-2 items-center'>
+                <div className='flex gap-2 items-center cursor-pointer' onClick={() => navigate('/contact')}>
                   <span className='h-1 w-1 rounded-full bg-gray-400'></span>
                   <p className='md:text-sm sm:text-[10px] text-[6px] text-gray-400'>
                     {' '}

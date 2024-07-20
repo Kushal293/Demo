@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+import '@splidejs/splide/dist/css/splide.min.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -29,19 +30,22 @@ const HomeSlider = () => {
   };
 
   return (
-    <Container>
+    <Container className='relative'>
       {sliders?.length > 0 && (
         <Splide
           className='slider'
           hasTrack={false}
           options={{
+            perPage: 1,
+            perMove: 1,
             rewind: true,
             autoplay: true,
             speed: 1000,
-            interval: 5000,
+            interval: 3000,
+            pagination: true,
           }}
         >
-          <SplideTrack>
+          <SplideTrack className="Splide__track">
             {sliders.map(slide => (
               <SplideSlide
                 className='slide md:h-[calc(100vh_-_80px)] sm:h-[460px]  h-[229px] sm:mt-0 mt-[50px]'
@@ -71,52 +75,13 @@ const HomeSlider = () => {
                 </div>
               </SplideSlide>
             ))}
-
-            {/* <SplideSlide className='slide'>
-              <div
-                className='w-full h-full flex bg-cover bg-center bg-no-repeat'
-                style={{ backgroundImage: `url(${ASSETS.slider2})` }}
-              >
-                <div className='flex-grow  max-w-[50%] bg-primary-600-65% flex flex-col justify-center p-16'>
-                  <h1 className='text-main-title leading-main-title font-semibold text-white'>
-                    Single Ingredient <br />
-                    <span className='text-secondary-600'>Treats</span>
-                  </h1>
-                  <h2 className='text-32px mt-3 text-white'>
-                    Spoil you dog wright
-                  </h2>
-                  <div className='mt-25'>
-                    <Button label='EXPLORE NOW' onClick={handleClick} />
-                  </div>
-                </div>
-              </div>
-            </SplideSlide>
-            <SplideSlide className='slide'>
-              <div
-                className='w-full h-full flex bg-cover bg-center bg-no-repeat'
-                style={{ backgroundImage: `url(${ASSETS.slider3})` }}
-              >
-                <div className='flex-grow  max-w-[45%] bg-primary-600-65% flex flex-col justify-center p-16'>
-                  <h1 className='text-main-title leading-main-title max-w-[12ch] font-semibold text-white'>
-                    Find out what your{' '}
-                    <span className='text-secondary-600'>dog needs</span> in
-                    their <span className='text-secondary-600'>Bowl</span>{' '}
-                  </h1>
-                  <h2 className='text-32px mt-3 text-white'>
-                    Spoil you dog wright
-                  </h2>
-                  <div className='mt-25'>
-                    <Button label='EXPLORE NOW' onClick={handleClick} />
-                  </div>
-                </div>
-              </div>
-            </SplideSlide> */}
-          </SplideTrack>
+           </SplideTrack>
+          <div className="splide__pagination splide__pagination--custom w-fit h-32 z-50"></div>
         </Splide>
       )}
     </Container>
-  );
-};
+     );
+    };
 
 export default HomeSlider;
 
@@ -125,6 +90,12 @@ const Container = styled.div`
     display: none;
   }
   & .splide__pagination {
-    display: none;
-  }
-`;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media (max-width: 480px) {
+       top: 140px;
+    }
+ }
+  `;
